@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage,lightning__AppPage,lightning__HomePage">
+            <property name="labels" type="String" description="labels field contains the column names comma separated. Sequence is very Important here. If the first Label is Name then the ApiName should also be Name or as per requirement" />
+            <property name="apiNames" type="String" description="The format is 'ApiNameofField' +':'+ 'type'. This will help to determine, what is the field along with its type." />
+            <property name=" object" type="String" description="Object Name" />
+
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,47 @@
+<template>
+    <div if:false={isLoaded} class="slds-m-around_small">
+        <lightning-spinner alternative-text="Loading..." variant="brand">
+        </lightning-spinner>
+    </div>
+
+    <lightning-card if:true={isLoaded} title="Custom List View">
+        <div class="slds-container_large slds-container_center slds-card">
+
+            <lightning-record-edit-form object-api-name="Account">
+                <lightning-messages>
+                </lightning-messages>
+                <div class="title slds-text-heading_medium">Filter:</div>
+                <div class="slds-grid slds-gutters slds-wrap slds-m-around_small">
+                    <div class="slds-col slds-large-size_1-of-4 slds-small-size_1-of-1 slds-medium-size_2-of-4">
+                        <label for="CountryCode" class="slds-form-element__label">Country</label>
+                        <lightning-input-field field-name="BillingCountryCode" data-id="country" variant="label-hidden"
+                            id="CountryCode" onchange={handleCountryChange}>
+
+                        </lightning-input-field>
+                    </div>
+                    <div
+                        class="slds-col_bump-left slds-large-size_1-of-4 slds-medium-size_2-of-4 slds-small-size_1-of-1">
+                        <label for="StateCode" class="slds-form-element__label">State</label>
+                        <lightning-input-field field-name="BillingStateCode" variant="label-hidden" data-id="statecode"
+                            id="StateCode" onchange={handleCountryChange}>
+                        </lightning-input-field>
+                    </div>
+                </div>
+            </lightning-record-edit-form>
+
+
+
+            <!-- <div class="slds-col slds-size_1-of-1">
+            <lightning-combobox name="Country" label="Country" placeholder="Country" options={countryOptions}
+                onchange={handleCountryChange}>
+            </lightning-combobox>
+            <lightning-combobox name="State" label="State" placeholder="State Code" options={stateOptions}>
+            </lightning-combobox>
+        </div> -->
+            <div>
+                <c-list-view columns={columns} initial-records={initialRecords} available-accounts={availableAccounts}>
+                </c-list-view>
+            </div>
+        </div>
+    </lightning-card>
+</template>

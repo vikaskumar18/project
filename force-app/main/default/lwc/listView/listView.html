@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-card">
+        <div class="slds-grid slds-gutters slds-wrap">
+            <div
+                class="slds-col_bump-left slds-large-size_1-of-3 slds-medium-size_2-of-3 slds-small-size_1-of-1 slds-float_right">
+
+                <lightning-input type="search" class="slds-m-around_medium" onchange={handleSearchChange}
+                    placeholder="Text to search">
+                </lightning-input>
+
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <div class="slds-m-around_medium">
+                    <template if:true={availableAccounts}>
+                        <lightning-datatable class="slds-max-medium-table_stacked-horizontal" key-field="Id"
+                            data={availableAccounts} columns={columns} hide-checkbox-column="true"
+                            show-row-number-column="true" onrowaction={handleRowAction}>
+                        </lightning-datatable>
+                    </template>
+                    <template if:true={error}>
+                        {error}>
+                    </template>
+                </div>
+            </div>
+        </div>
+        <div class="search">
+        </div>
+
+
+
+    </div>
+</template>
